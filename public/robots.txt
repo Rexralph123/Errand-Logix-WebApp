@@ -1,0 +1,10 @@
+# ============================================
+# robots.txt for Errand Logix
+# https://yourdomain.com
+# ============================================
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://yourdomain.com/sitemap.xml

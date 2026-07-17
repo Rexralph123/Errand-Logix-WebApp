@@ -1,5 +1,6 @@
     import "./App.css";
-    import { Routes, Route } from "react-router-dom";
+    import { useEffect } from "react";
+    import { Routes, Route, useLocation } from "react-router-dom";
 
     import Navbar from "./components/Navbar";
     import Footer from "./components/Footer";
@@ -11,6 +12,19 @@
     import BookingPage from "./pages/BookingPage";
 
     function Home() {
+    const location = useLocation();
+
+    // Scroll to a section if we arrived via a hash link (e.g. /#services)
+    useEffect(() => {
+        if (location.hash) {
+        const id = location.hash.replace("#", "");
+        const el = document.getElementById(id);
+        if (el) {
+            setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
+        }
+        }
+    }, [location]);
+
     return (
         <>
         <section className="Hero-section">
@@ -18,8 +32,14 @@
         </section>
 
         <Logostyle />
-        <Services />
-        <Booking />
+
+        <section id="services">
+            <Services />
+        </section>
+
+        <section id="home-booking">
+            <Booking />
+        </section>
         </>
     );
     }

@@ -54,7 +54,7 @@
                 <span>We'll Handle The Rest.</span>
             </h1>
             <p className="about-hero-sub">
-                Fill in the details below and confirm instantly on WhatsApp —
+                Fill in the details below and confirm instantly on WhatsApp,
                 a verified Errand Logix runner will pick it up shortly after.
             </p>
             <div className="about-hero-actions">
@@ -91,7 +91,7 @@
 
             <a
             className="btn btn-outline-black"
-            href="https://wa.me/2348000000000"
+            href="https://wa.me/2349050412857"
             target="_blank"
             rel="noopener noreferrer"
             >

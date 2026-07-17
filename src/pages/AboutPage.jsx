@@ -1,5 +1,5 @@
-
 import { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import {
     ShoppingCart,
     UtensilsCrossed,
@@ -26,11 +26,6 @@ import {
     Mail,
 } from "lucide-react";
 
-/* --------------------------------------------------------------------
-   Scroll-reveal hook — lightweight, no external libs.
-   Adds .in-view to any element with data-reveal once it enters the
-   viewport, and never re-runs (no flicker on scroll-back).
-   -------------------------------------------------------------------- */
 function useReveal() {
     const rootRef = useRef(null);
 
@@ -64,9 +59,6 @@ function scrollToId(id) {
     }
 }
 
-/* --------------------------------------------------------------------
-   Static content
-   -------------------------------------------------------------------- */
 const SERVICES = [
     { icon: ShoppingCart, label: "Grocery Shopping" },
     { icon: UtensilsCrossed, label: "Food Pickups" },
@@ -121,6 +113,7 @@ const WHY_FEATURES = [
 
 function AboutPage() {
     const rootRef = useReveal();
+    const navigate = useNavigate();
 
     return (
         <div ref={rootRef}>
@@ -145,7 +138,7 @@ function AboutPage() {
                     <div className="about-hero-actions">
                         <button
                             className="btn btn-solid-black"
-                            onClick={() => scrollToId("cta")}
+                            onClick={() => navigate("/bookings")}
                         >
                             Book an Errand
                             <ArrowRight size={18} />
@@ -220,17 +213,28 @@ function AboutPage() {
                     </div>
 
                     <div className="story-quote-card" data-reveal>
-                        <Quote size={28} className="quote-mark" />
-                        <p>
-                            We didn't set out to build another delivery app. We set out
-                            to give people their time back — and build a company Lagos
-                            could trust with the small things that matter most.
-                        </p>
-                        <div className="story-quote-author">
-                            <div className="avatar-circle">OM</div>
-                            <div>
-                                <strong>Obisike Ugonna Michael</strong>
-                                <span>Founder &amp; CEO, Errand Logix</span>
+                        <div className="story-quote-photo-wrap">
+                            <img
+                                src="/CEO UGONNA .png"
+                                alt="Obisike Ugonna Michael"
+                                className="story-quote-photo"
+                            />
+                        </div>
+
+                        <div className="story-quote-content">
+                            <Quote size={28} className="quote-mark" />
+                            <p>
+                                We didn't set out to build another delivery app. We set
+                                out to give people their time back, and build a company
+                                Lagos could trust with the small things that matter
+                                most.
+                            </p>
+                            <div className="story-quote-author">
+                                <div className="avatar-circle">OM</div>
+                                <div>
+                                    <strong>Obisike Ugonna Michael</strong>
+                                    <span>Founder &amp; CEO, Errand Logix</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -374,14 +378,14 @@ function AboutPage() {
                 <div className="about-cta-actions">
                     <button
                         className="btn btn-solid-white"
-                        onClick={() => scrollToId("booking")}
+                        onClick={() => navigate("/bookings")}
                     >
                         Book an Errand Today
                         <ArrowRight size={18} />
                     </button>
                     <button
                         className="btn btn-outline-white"
-                        onClick={() => scrollToId("services")}
+                        onClick={() => navigate("/#services")}
                     >
                         Explore Services
                     </button>

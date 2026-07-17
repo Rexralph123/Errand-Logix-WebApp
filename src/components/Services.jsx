@@ -58,7 +58,7 @@ function Services() {
         <div className="section-head center">
             <span className="eyebrow">Simple Process</span>
             <h2 style={{ color: "white" }}>Booking a runner takes under a minute</h2>
-            <p>No calls, no back and forth — just tell us what you need.</p>
+            <p>No calls, no back and forth, just tell us what you need.</p>
         </div>
 
         <div className="steps-grid">

@@ -107,7 +107,7 @@
         <>
         <h3 className="form-title">Delivery Booking</h3>
         <p className="form-desc">
-            Tell us where your package is coming from and going to — we'll match
+            Tell us where your package is coming from and going to, we'll match
             you with a nearby runner.
         </p>
 
@@ -191,7 +191,7 @@
         <>
         <h3 className="form-title">Errand Booking</h3>
         <p className="form-desc">
-            Pick the type of errand and give us the details — a verified runner
+            Pick the type of errand and give us the details, a verified runner
             will take it from there.
         </p>
 
@@ -272,7 +272,7 @@
         <h3 className="form-title">Customize Your Request</h3>
         <p className="form-desc">
             Have a task that doesn't fit a category? Describe exactly what you
-            need — our concierge team will scope it and confirm pricing.
+            need, our concierge team will scope it and confirm pricing.
         </p>
 
         <Field label="Service Tier" required>
@@ -455,7 +455,7 @@
             <span className="eyebrow">Get Started</span>
             <h2>Book your errand</h2>
             <p>
-            Choose delivery, errand, or a fully custom concierge request —
+            Choose delivery, errand, or a fully custom concierge request,
             confirm details, and a verified runner takes it from here.
             </p>
         </div>

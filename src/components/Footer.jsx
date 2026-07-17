@@ -46,7 +46,7 @@ function Footer() {
           <h3>Get In Touch</h3>
           <div className="support">
             <p>Lagos, Nigeria</p>
-            <p>hello@errandlogix.com</p>
+            <p>errandngco@gmail.com</p>
             <p>+234 9050412857</p>
           </div>
         </div>

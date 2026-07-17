@@ -662,7 +662,10 @@ C1. Navbar
 .hero-left{
     display:flex;
     flex-direction:column;
+    align-items:flex-start;
+    text-align:left;
     gap:25px;
+    width:100%;
 }
 
 .hero-tag{
@@ -670,6 +673,7 @@ C1. Navbar
     align-items:center;
     gap:8px;
     width:max-content;
+    align-self:flex-start;
     padding:9px 18px;
     border-radius:999px;
     background:#fef3e2;
@@ -687,6 +691,8 @@ C1. Navbar
     font-family:'Poppins';
     font-weight:800;
     color:#111;
+    text-align:left;
+    width:100%;
 }
 
 .hero h1 span{
@@ -698,19 +704,24 @@ C1. Navbar
     color:#666;
     line-height:1.8;
     max-width:560px;
+    text-align:left;
 }
 
 .hero-actions{
     display:flex;
+    justify-content:flex-start;
     gap:18px;
+    width:100%;
 }
 
 .hero-trust{
     display:flex;
+    justify-content:flex-start;
     gap:28px;
     flex-wrap:wrap;
     align-items:center;
     padding-top:6px;
+    width:100%;
 }
 
 .trust-item{
@@ -731,8 +742,10 @@ C1. Navbar
 
 .hero-stats{
     display:flex;
+    justify-content:flex-start;
     gap:20px;
     margin-top:20px;
+    width:100%;
 }
 
 .stat-card{
@@ -742,6 +755,7 @@ C1. Navbar
     min-width:160px;
     transition:.3s;
     background:rgb(249, 249, 249);
+    text-align:left;
 }
 
 .stat-card:hover{
@@ -855,6 +869,11 @@ Brand signature — built around .logo-style
 .brand-signature .logo-style span{
     color: #F59E0B;
 }
+
+.services h2{
+    color: black;
+}
+
 .brand-signature p{
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
@@ -914,6 +933,33 @@ Brand signature — built around .logo-style
     line-height: 1.6;
 }
 
+.service-card{
+    border: 1px solid #e2e2e2;
+    border-radius: 14px;
+    padding: 28px 22px;
+    transition: 0.25s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.service-card:hover{
+    border-color: black;
+    transform: translateY(-6px);
+}
+
+.service-icon{
+    width: 46px;
+    height: 46px;
+    border-radius: 10px;
+    background: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
 /* --------------------------------------------------------------------
    How it works
    -------------------------------------------------------------------- */
@@ -921,6 +967,12 @@ Brand signature — built around .logo-style
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 40px;
+}
+.step{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 .step-num{
     width: 42px;
@@ -957,6 +1009,9 @@ Brand signature — built around .logo-style
     padding: 0 80px 100px;
 }
 
+.booking h2{
+    color: #000;
+}
 .booking-card{
     border: 1px solid black;
     border-radius: 18px;
@@ -1212,8 +1267,10 @@ Brand signature — built around .logo-style
         gap: 60px;
         text-align: center;
     }
-    .hero-left{ align-items: center; }
-    .hero-sub{ margin: 0 auto; }
+    .hero-left{ align-items: center; text-align: center; }
+    .hero-tag{ align-self: center; }
+    .hero h1{ text-align: center; }
+    .hero-sub{ margin: 0 auto; text-align: center; }
     .hero-actions, .hero-trust, .hero-stats{ justify-content: center; }
     .hero-right{ order: -1; }
     .hero-image{ max-width: 380px; }
@@ -1405,7 +1462,7 @@ Brand signature — built around .logo-style
     gap: 60px;
     align-items: start;
 }
-
+ 
 .story-copy h2{
     font-family: 'Poppins', sans-serif;
     font-size: 34px;
@@ -1414,7 +1471,7 @@ Brand signature — built around .logo-style
     color: white;
     margin: 0 0 24px;
 }
-
+ 
 .story-copy p{
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
@@ -1423,7 +1480,7 @@ Brand signature — built around .logo-style
     color: #bdbdbd;
     margin-bottom: 18px;
 }
-
+ 
 .story-quote-card{
     background: #141414;
     border: 1px solid #2a2a2a;
@@ -1431,13 +1488,43 @@ Brand signature — built around .logo-style
     padding: 32px 28px;
     position: sticky;
     top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
-
+ 
+.story-quote-photo-wrap{
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #2a2a2a;
+    transition: 0.3s;
+}
+.story-quote-card:hover .story-quote-photo-wrap{
+    border-color: #F59E0B;
+}
+ 
+.story-quote-photo{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: 0.4s ease;
+}
+.story-quote-card:hover .story-quote-photo{
+    transform: scale(1.04);
+}
+ 
+.story-quote-content p{
+    margin-bottom: 0;
+}
+ 
 .quote-mark{
     color: #F59E0B;
     margin-bottom: 14px;
 }
-
+ 
 .story-quote-card p{
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
@@ -1446,13 +1533,14 @@ Brand signature — built around .logo-style
     color: #e5e5e5;
     margin-bottom: 24px;
 }
-
+ 
 .story-quote-author{
     display: flex;
     align-items: center;
     gap: 14px;
+    margin-top: 24px;
 }
-
+ 
 .avatar-circle{
     width: 44px;
     height: 44px;
@@ -1466,7 +1554,7 @@ Brand signature — built around .logo-style
     font-family: 'Paytone One', sans-serif;
     font-size: 14px;
 }
-
+ 
 .story-quote-author strong{
     display: block;
     font-family: 'Poppins', sans-serif;
@@ -1764,6 +1852,10 @@ Brand signature — built around .logo-style
     color: #bdbdbd;
 }
 
+
+.section-white h2{
+    color: #000;
+}
 /* --------------------------------------------------------------------
    About CTA
    -------------------------------------------------------------------- */
@@ -1846,4 +1938,119 @@ Brand signature — built around .logo-style
     .about-cta{ padding: 60px 20px; }
     .about-cta h2{ font-size: 28px; }
     .about-cta-actions{ flex-direction: column; align-items: stretch; }
+}
+
+
+
+
+
+/*=====================================================================
+  BOOKING PAGE — dedicated styling for BookingPage.jsx (separate from
+  the .booking / .booking-card system used in the Home page's inline
+  booking widget — that block is untouched). Reuses .about-hero,
+  .about-hero-bg, .about-hero-inner, .eyebrow-pill, .btn and .trust-item
+  already defined above for visual consistency.
+=====================================================================*/
+
+/* --------------------------------------------------------------------
+   Page shell — makes BookingPage fill the viewport
+   -------------------------------------------------------------------- */
+.booking-page{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    background: white;
+}
+
+/* --------------------------------------------------------------------
+   Hero trust row (verified runners / same-day / whatsapp)
+   -------------------------------------------------------------------- */
+.booking-trust-row{
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 22px;
+}
+.booking-trust-row .trust-item{
+    color: #333;
+}
+.booking-trust-row .trust-item svg{
+    color: #F59E0B;
+}
+
+/* --------------------------------------------------------------------
+   Help strip — "Not sure what to book?" CTA
+   -------------------------------------------------------------------- */
+.booking-help{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    max-width: 960px;
+    margin: 0 auto 100px;
+    padding: 40px 44px;
+    border: 1px solid #e2e2e2;
+    border-radius: 18px;
+    background: #fafafa;
+    flex-shrink: 0;
+}
+
+.booking-help > svg{
+    color: #F59E0B;
+    flex-shrink: 0;
+}
+
+.booking-help > div{
+    flex: 1;
+}
+
+.booking-help h4{
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 6px;
+}
+
+.booking-help p{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #666;
+}
+
+.booking-help .btn{
+    white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------
+   Responsive — Booking page
+   -------------------------------------------------------------------- */
+@media (max-width: 1024px){
+    .booking-help{
+        margin: 0 40px 80px;
+        max-width: none;
+    }
+}
+
+@media (max-width: 768px){
+    .booking-trust-row{
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .booking-help{
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+        margin: 0 20px 60px;
+        padding: 32px 24px;
+    }
+
+    .booking-help .btn{
+        width: 100%;
+    }
 }

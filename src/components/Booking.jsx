@@ -9,7 +9,7 @@ import {
   IconSparkle,
   IconCheck,
   IconInfo,
-} from "../icons";
+} from "./icons";
 
 const TABS = [
   { key: "delivery", label: "Delivery Booking", sub: "Send or receive a package", icon: IconTruck },

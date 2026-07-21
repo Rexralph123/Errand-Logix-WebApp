@@ -57,7 +57,7 @@ function Hero() {
                 <div className="hero-trust">
 
                     <div className="trust-item">
-                        ⭐⭐⭐⭐⭐ <span>Rated 4.9/5</span>
+                        ⭐⭐⭐⭐⭐ <span>Rated 4.5/5</span>
                     </div>
 
                     <div className="trust-item">
@@ -73,12 +73,12 @@ function Hero() {
                 <div className="hero-stats">
 
                     <div className="stat-card">
-                        <h2>12K+</h2>
+                        <h2>50+</h2>
                         <p>Completed Errands</p>
                     </div>
 
                     <div className="stat-card">
-                        <h2>800+</h2>
+                        <h2>3+</h2>
                         <p>Verified Runners</p>
                     </div>
 

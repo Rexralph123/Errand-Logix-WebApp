@@ -2,7 +2,7 @@ function Logo() {
     return (
         <div className="logo-container">
             <img
-                src="/Errand Logix LTD Logo .png"
+                src="/public/images/Errand-Logix- Logo.png"
                 alt="Errand Logix"
                 className="logo"
             />

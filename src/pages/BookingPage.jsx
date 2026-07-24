@@ -1,6 +1,6 @@
     import { useEffect, useRef } from "react";
     import { ShieldCheck, Clock, MessageCircle, Sparkles, ArrowRight } from "lucide-react";
-    import BookingForm from "../components/BookingForm";
+    import BookingForm from "../components/Bookingform";
 
     function useReveal() {
     const rootRef = useRef(null);

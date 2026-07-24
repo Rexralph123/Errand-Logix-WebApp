@@ -8,7 +8,7 @@ import {
     IconBolt,
     IconStore,
     IconSparkle,
-    } from "./icons";
+    } from "./ui/Icon";
 
 const SERVICES = [
     { icon: IconBag, title: "Grocery & Market Runs", desc: "Fresh produce and market shopping handled and delivered to your door." },

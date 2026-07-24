@@ -6,12 +6,6 @@
 
 */
 
-
-
-
-@import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=...');
-
 /* Global reset */
 * {
   margin: 0;
@@ -1586,6 +1580,10 @@ Brand signature — built around .logo-style
     background: white;
     color: black;
     transition: 0.25s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 .mv-card:hover{
     border-color: black;
@@ -1648,6 +1646,10 @@ Brand signature — built around .logo-style
     border-radius: 16px;
     padding: 28px 24px;
     transition: 0.25s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 .value-card:hover{
     border-color: #F59E0B;
@@ -1807,33 +1809,41 @@ Brand signature — built around .logo-style
 
 .why-features-grid{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
 .why-feature-card{
     display: flex;
-    gap: 16px;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     border: 1px solid #262626;
     border-radius: 16px;
-    padding: 24px;
+    padding: 32px 24px;
     transition: 0.25s;
 }
 .why-feature-card:hover{
     border-color: #F59E0B;
+    transform: translateY(-6px);
 }
 
 .why-feature-icon{
-    width: 40px;
-    height: 40px;
-    min-width: 40px;
-    border-radius: 10px;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 12px;
     background: #1a1a1a;
     color: #F59E0B;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 18px;
+    transition: 0.25s;
+}
+.why-feature-card:hover .why-feature-icon{
+    background: #F59E0B;
+    color: black;
 }
 
 .why-feature-card h4{
@@ -1841,7 +1851,7 @@ Brand signature — built around .logo-style
     font-size: 15.5px;
     font-weight: 600;
     color: white;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
 .why-feature-card p{
@@ -1923,7 +1933,7 @@ Brand signature — built around .logo-style
     .values-grid{ grid-template-columns: repeat(2, 1fr); }
     .team-grid{ grid-template-columns: repeat(2, 1fr); }
     .why-stats-grid{ grid-template-columns: repeat(2, 1fr); }
-    .why-features-grid{ grid-template-columns: 1fr; }
+    .why-features-grid{ grid-template-columns: repeat(2, 1fr); }
     .about-cta{ padding: 80px 40px; }
 }
 
@@ -1975,6 +1985,8 @@ Brand signature — built around .logo-style
     margin-top: 22px;
 }
 .booking-trust-row .trust-item{
+    flex-direction: column;
+    text-align: center;
     color: #333;
 }
 .booking-trust-row .trust-item svg{

@@ -1,4 +1,4 @@
-import { IconBolt } from "./icons";
+import { Zap } from "/src/components/ui/Icon";
 
 function scrollToId(id) {
     const el = document.getElementById(id);
@@ -42,7 +42,7 @@ function Hero() {
                         onClick={() => scrollToId("booking")}
                     >
                         Book an Errand
-                        <IconBolt size={18} />
+                        <Zap size={18} />
                     </button>
 
                     <button
@@ -97,7 +97,7 @@ function Hero() {
                 <div className="hero-bg"></div>
 
                 <img
-                    src="/Agent black back (3).png"
+                    src="/public/images/Agent black back (3).png"
                     alt="Errand Logix Agent"
                     className="hero-image"
                 />

@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 
 // ── Replace these with your real business contacts ──────────────────────
-const BUSINESS_WHATSAPP_NUMBER = "2348000000000"; // digits only, country code, no + or leading 0
+const BUSINESS_WHATSAPP_NUMBER = "2349050412857"; // digits only, country code, no + or leading 0
 const BUSINESS_EMAIL = "bookings@errandlogix.com";
 // ──────────────────────────────────────────────────────────────────────
 

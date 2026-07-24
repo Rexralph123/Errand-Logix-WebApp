@@ -1,20 +1,46 @@
     import "./App.css";
-    import { useEffect } from "react";
+    import { useEffect, useRef } from "react";
     import { Routes, Route, useLocation } from "react-router-dom";
 
     import Navbar from "./components/Navbar";
     import Footer from "./components/Footer";
     import Logostyle from "./components/Logostyle";
-    import Hero from "./components/Hero";
+    import Hero from "./components/Hero"
     import Services from "./components/Services";
-    import Booking from "./components/Booking";
+    import BookingForm from "./components/Bookingform";
     import AboutPage from "./pages/AboutPage";
     import BookingPage from "./pages/BookingPage";
 
+    function useReveal() {
+    const rootRef = useRef(null);
+
+    useEffect(() => {
+        const nodes = rootRef.current?.querySelectorAll("[data-reveal]");
+        if (!nodes || nodes.length === 0) return;
+
+        const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+                observer.unobserve(entry.target);
+            }
+            });
+        },
+        { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
+        );
+
+        nodes.forEach((node) => observer.observe(node));
+        return () => observer.disconnect();
+    }, []);
+
+    return rootRef;
+    }
+
     function Home() {
     const location = useLocation();
+    const rootRef = useReveal();
 
-    // Scroll to a section if we arrived via a hash link (e.g. /#services)
     useEffect(() => {
         if (location.hash) {
         const id = location.hash.replace("#", "");
@@ -26,21 +52,18 @@
     }, [location]);
 
     return (
-        <>
+        <div ref={rootRef}>
         <section className="Hero-section">
             <Hero />
         </section>
 
         <Logostyle />
 
-        <section id="services">
-            <Services />
-        </section>
+        <Services />
 
-        <section id="home-booking">
-            <Booking />
-        </section>
-        </>
+        {/* =================== BOOKING FORM =================== */}
+        <BookingForm />
+        </div>
     );
     }
 

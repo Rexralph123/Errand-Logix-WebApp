@@ -10,7 +10,7 @@ function Footer() {
       <div className="footer-top">
         <div className="footer-brand">
           <div className="footer-logo">
-            <img src="/Errand Logix LTD Logo .png" alt="Errand Logix Logo" />
+            <img src="/public/images/Errand-Logix- Logo.png" alt="Errand Logix Logo" />
             <h2 className="footer-name">
               Errand<span>Logix</span>
             </h2>

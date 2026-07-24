@@ -11,7 +11,7 @@
         <header className="navbar" id="top">
         <div className="nav-left">
             <div className="logo-container">
-            <img src="/public/images/Errand-Logix- Logo.png" alt="Errand Logix Logo" />
+            <img src="/images/Errand-Logix- Logo.png" alt="Errand Logix Logo" />
             <h1 className="Logo-name">
                 Errand <span>Logix</span>
             </h1>

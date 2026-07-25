@@ -1,4 +1,5 @@
     import { Link } from "react-router-dom";
+    import logo from "../assets/images/Errand-logix-logo.png"; // adjust relative path as needed
 
     const NAV_LINKS = [
     { path: "/", label: "Home" },
@@ -11,7 +12,7 @@
         <header className="navbar" id="top">
         <div className="nav-left">
             <div className="logo-container">
-            <img src="/src/assets/images/Errand-logix-logo.png" alt="Errand Logix Logo"/>
+            <img src={logo} alt="Errand Logix Logo" />
             <h1 className="Logo-name">
                 Errand <span>Logix</span>
             </h1>

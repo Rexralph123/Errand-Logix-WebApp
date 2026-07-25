@@ -134,6 +134,22 @@ C1. Navbar
 
 /*____________________NAVBAR-END_____________________________*/
 
+/* ================= NAV TOGGLE (hidden on desktop) ================= */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.nav-collapse {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
 /* ================= NAV BAR MOBILE VIEW-TABLETS ================= */
 
 @media (max-width: 1024px) {
@@ -161,20 +177,13 @@ C1. Navbar
 @media (max-width: 768px) {
 
     .navbar {
-        flex-direction: column;
-        gap: 20px;
-        padding: 20px;
-    }
-
-    .nav-menu {
-        gap: 20px;
+        padding: 16px 20px;
+        position: relative;
         flex-wrap: wrap;
-        justify-content: center;
     }
 
-    .nav-right {
-        width: 100%;
-        justify-content: center;
+    .nav-toggle {
+        display: block;
     }
 
     .Logo-name {
@@ -183,6 +192,61 @@ C1. Navbar
 
     .Logo-name span {
         font-size: 24px;
+    }
+
+    /* Collapsible panel */
+    .nav-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: black;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.35s ease, opacity 0.25s ease;
+        border-top: 1px solid #222;
+    }
+
+    .nav-collapse.open {
+        max-height: 400px;
+        opacity: 1;
+        padding: 10px 0 20px;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-menu a {
+        display: block;
+        padding: 14px 20px;
+        font-size: 16px;
+        border-bottom: 1px solid #1a1a1a;
+    }
+
+    .nav-right {
+        width: 100%;
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px 20px 0;
+    }
+
+    .login-btn,
+    .signup-btn {
+        width: 100%;
+        max-width: none;
+        padding: 12px;
     }
 }
 
@@ -201,23 +265,6 @@ C1. Navbar
 
     .Logo-name span {
         font-size: 20px;
-    }
-
-    .nav-menu {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-
-    .nav-right {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .login-btn,
-    .signup-btn {
-        width: 100%;
-        max-width: 250px;
     }
 }
 /*------------NAVBAR-COMPONENT-END-------------*/
@@ -396,12 +443,14 @@ C1. Navbar
 @media (max-width: 768px) {
 
     .footer {
-        padding: 50px 20px 20px;
+        padding: 48px 24px 20px;
     }
 
     .footer-top {
         grid-template-columns: 1fr;
+        gap: 36px;
         text-align: center;
+        margin-bottom: 32px;
     }
 
     .footer-logo {
@@ -409,12 +458,43 @@ C1. Navbar
     }
 
     .footer-brand p {
-        margin: auto;
+        margin: 0 auto;
+        max-width: 340px;
     }
 
     .footer-links,
     .footer-contact {
         align-items: center;
+        margin-left: 0;
+    }
+
+    .footer-links h3,
+    .footer-contact h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+        position: relative;
+        padding-bottom: 8px;
+    }
+
+    .footer-links h3::after,
+    .footer-contact h3::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 32px;
+        height: 2px;
+        background: #F59E0B;
+    }
+
+    .Link-info,
+    .support {
+        gap: 10px;
+    }
+
+    .footer-links a {
+        text-align: center;
     }
 
     .footer-name {
@@ -424,20 +504,20 @@ C1. Navbar
     .footer-name span {
         font-size: 25px;
     }
-}
-
-
-@media (max-width: 768px) {
 
     .footer-bottom {
         flex-direction: column;
         text-align: center;
+        gap: 14px;
     }
 
     .footer-legal {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 12px;
+        gap: 12px 20px;
+    }
+    .support{
+        text-align: center;
     }
 }
 /*--------------FOOTER-COMPONENT-END--------------*/

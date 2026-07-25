@@ -1,5 +1,5 @@
 import { Zap } from "/src/components/ui/Icon";
-
+import "/src/assets/images/Herosec-Agent.png";
 
 function scrollToId(id) {
     const el = document.getElementById(id);
@@ -98,7 +98,7 @@ function Hero() {
                 <div className="hero-bg"></div>
 
                 <img
-                    src="/public/images/Herosec-Agent.png"
+                    src="/images/Herosec-Agent.png"
                     alt="Errand Logix Agent"
                     className="hero-image"
                 />

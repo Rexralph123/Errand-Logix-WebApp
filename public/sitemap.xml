@@ -24,3 +24,76 @@
     </url>
 
 </urlset>
+
+
+/*
+errand-logix-webapp/
+├── public/
+│   ├── robots.txt
+│   ├── sitemap.xml
+│   ├── images/
+│   │   ├── logo.png
+│   │   ├── hero-image.png
+│   │   └── ...
+│   └── icons/
+│
+├── src/
+│   ├── assets/
+│   │   ├── images/
+│   │   ├── icons/
+│   │   └── fonts/
+│   │
+│   ├── components/
+│   │   ├── Aboutus.jsx
+│   │   ├── Bookingform.jsx
+│   │   ├── Footer.jsx
+│   │   ├── Hero.jsx
+│   │   ├── Logostyle.jsx
+│   │   ├── Services.jsx
+│   │   ├── Navbar.jsx
+│   │   └── ui/
+│   │       └── Icons.jsx
+│   │
+│   ├── pages/
+│   │   ├── AboutPage.jsx
+│   │   └── BookingPage.jsx
+│   │   
+│   │   
+│   │
+│   ├── routes/
+│   │   └── AppRoutes.jsx
+│   │
+│   ├── styles/
+│   ├── utils/
+│   │   ├── constants.js
+│   │   ├── helpers.js
+│   │   └── pricing.js
+│   │
+│   ├── App.jsx
+│   ├── App.css
+│   ├── main.jsx
+│   ├── main.tsx
+│   ├── message.tsx
+│   └── vite-env.d.ts
+│
+├── .gitignore
+├── package.json
+├── vite.config.js
+├── index.html
+├── README.md
+└── _redirects
+
+
+
+using: 
+react
+eslinter
+lucid icons
+vite
+router
+axios
+helmet async
+framer motion
+
+
+*/

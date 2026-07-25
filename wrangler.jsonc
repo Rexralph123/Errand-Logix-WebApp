@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "errand-logix",
+  "name": "errand-logix-webapp",
   "compatibility_date": "2026-07-24",
   "observability": {
     "enabled": true

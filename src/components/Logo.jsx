@@ -1,10 +1,9 @@
 
-
 function Logo() {
     return (
         <div className="logo-container">
             <img
-                src="/dist/images/Errand-logix-logo.png"
+                src="/src/assets/images/Errand-logix-logo.png"
                 alt="Errand Logix"
                 className="logo"
             />

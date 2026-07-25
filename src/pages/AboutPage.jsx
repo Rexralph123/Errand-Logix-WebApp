@@ -215,7 +215,7 @@ function AboutPage() {
                     <div className="story-quote-card" data-reveal>
                         <div className="story-quote-photo-wrap">
                             <img
-                                src="/public/images/CEO UGONNA .png"
+                                src="/src/assets/images/CEO-UGONNA .png"
                                 alt="Obisike Ugonna Michael"
                                 className="story-quote-photo"
                             />

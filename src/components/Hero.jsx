@@ -98,7 +98,7 @@ function Hero() {
                 <div className="hero-bg"></div>
 
                 <img
-                    src="/dist/images/Herosec-Agent.png"
+                    src={heroAgent}
                     alt="Errand Logix Agent"
                     className="hero-image"
                 />

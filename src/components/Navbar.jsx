@@ -1,5 +1,5 @@
     import { Link } from "react-router-dom";
-    import logo from "../assets/images/Errand-logix-logo.png"; // adjust relative path as needed
+    import logo from "./Hero"; // adjust relative path as needed
 
     const NAV_LINKS = [
     { path: "/", label: "Home" },

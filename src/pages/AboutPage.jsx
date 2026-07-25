@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import ceoPhoto from "../assets/images/CEO-UGONNA .png"; // note: underscore, not space — matches actual filename
 import { useNavigate } from "react-router-dom";
 import {
     ShoppingCart,
@@ -215,7 +216,7 @@ function AboutPage() {
                     <div className="story-quote-card" data-reveal>
                         <div className="story-quote-photo-wrap">
                             <img
-                                src="/src/assets/images/CEO-UGONNA .png"
+                                src={ceoPhoto}
                                 alt="Obisike Ugonna Michael"
                                 className="story-quote-photo"
                             />

@@ -11,6 +11,7 @@ import "./App.css";
     import AboutPage from "./pages/AboutPage";
     import BookingPage from "./pages/BookingPage";
     import JobsPage from "./pages/JobsPage";
+    import Coverage from "./components/Coverage";
 
     function useReveal() {
     const rootRef = useRef(null);
@@ -61,6 +62,8 @@ import "./App.css";
         <Logostyle />
 
         <Services />
+
+        <Coverage />
 
         {/* =================== BOOKING FORM =================== */}
         <BookingForm />

@@ -2477,7 +2477,7 @@ Brand signature — built around .logo-style
 }
 
 /* --------------------------------------------------------------------
-   Responsive — Jobs page
+Responsive — Jobs page
    -------------------------------------------------------------------- */
 @media (max-width: 1024px){
     .jobs-hero{ padding: 110px 40px 80px; }
@@ -2494,4 +2494,148 @@ Brand signature — built around .logo-style
     .perks-grid{ grid-template-columns: 1fr; }
     .jobs-cta{ padding: 60px 20px; }
     .jobs-cta h2{ font-size: 26px; }
+}
+
+
+
+/*=====================================================================
+  COVERAGE — service area section for the Home page. Reuses .section,
+  .section-white, .eyebrow, .section-head from the shared system.
+=====================================================================*/
+
+.coverage-grid{
+    display: grid;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.coverage-grid-active{
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 760px;
+    margin: 0 auto 60px;
+}
+
+.coverage-card{
+    border: 1px solid #e2e2e2;
+    border-radius: 16px;
+    padding: 28px 26px;
+    transition: 0.25s;
+}
+.coverage-card.active{
+    border-color: black;
+    background: #fafafa;
+}
+.coverage-card.active:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0,0,0,.08);
+}
+
+.coverage-card-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.coverage-icon{
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: black;
+    color: #F59E0B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.coverage-badge{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11.5px;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 6px 12px;
+    white-space: nowrap;
+}
+.coverage-badge.live{
+    background: #eafbe7;
+    color: #1f8a3d;
+    border: 1px solid #bdeecb;
+}
+.coverage-badge.soon{
+    background: #f3f3f3;
+    color: #888;
+    border: 1px solid #e2e2e2;
+}
+
+.coverage-card.active h3{
+    font-family: 'Poppins', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 8px;
+}
+.coverage-card.active p{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: #666;
+}
+
+.coverage-soon-head{
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto 28px;
+}
+.coverage-soon-head h4{
+    font-family: 'Poppins', sans-serif;
+    font-size: 15.5px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 6px;
+}
+.coverage-soon-head p{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    color: #888;
+}
+
+.coverage-grid-soon{
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.coverage-card.soon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    border-style: dashed;
+    background: #fcfcfc;
+    opacity: 0.75;
+}
+.coverage-card.soon:hover{
+    opacity: 1;
+    border-color: #ccc;
+}
+.coverage-card.soon h5{
+    font-family: 'Poppins', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #555;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px){
+    .coverage-grid-active{ grid-template-columns: 1fr; max-width: 460px; }
+    .coverage-grid-soon{ grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px){
+    .coverage-grid-soon{ grid-template-columns: repeat(2, 1fr); }
 }

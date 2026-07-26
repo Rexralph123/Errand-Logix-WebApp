@@ -1,4 +1,4 @@
-    import { Suspense, lazy, useEffect } from "react";
+import { Suspense, lazy, useEffect } from "react";
     import { Routes, Route, useLocation } from "react-router-dom";
     import { AnimatePresence, motion } from "framer-motion";
     import { scrollToHashOrTop } from "../utils/helpers";
@@ -6,6 +6,7 @@
     const Home = lazy(() => import("../pages/Home"));
     const About = lazy(() => import("../pages/About"));
     const Bookings = lazy(() => import("../pages/Bookings"));
+    const Jobs = lazy(() => import("../pages/JobsPage"));
 
     const pageVariants = {
     initial: { opacity: 0, y: 16 },
@@ -52,6 +53,7 @@
             <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
             <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
             <Route path="/bookings" element={<PageWrapper><Bookings /></PageWrapper>} />
+            <Route path="/jobs" element={<PageWrapper><Jobs /></PageWrapper>} />
             </Routes>
         </AnimatePresence>
         </Suspense>

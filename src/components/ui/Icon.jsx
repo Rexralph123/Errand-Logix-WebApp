@@ -8,6 +8,8 @@ export {
   Zap as IconBolt,
   Store as IconStore,
   Sparkles as IconSparkle,
+  Footprints as IconFoot,
+  Wallet as IconWallet,
 
   // Original exports (optional but useful)
   ShoppingBag,
@@ -23,6 +25,8 @@ export {
   Clock,
   Package,
   Bike,
+  Footprints,
+  Wallet,
   Info,
   CheckCircle2,
   Menu,

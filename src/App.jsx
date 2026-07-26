@@ -1,4 +1,4 @@
-    import "./App.css";
+import "./App.css";
     import { useEffect, useRef } from "react";
     import { Routes, Route, useLocation } from "react-router-dom";
 
@@ -10,6 +10,7 @@
     import BookingForm from "./components/Bookingform";
     import AboutPage from "./pages/AboutPage";
     import BookingPage from "./pages/BookingPage";
+    import JobsPage from "./pages/JobsPage";
 
     function useReveal() {
     const rootRef = useRef(null);
@@ -77,6 +78,7 @@
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/bookings" element={<BookingPage />} />
+            <Route path="/jobs" element={<JobsPage />} />
             </Routes>
         </main>
 

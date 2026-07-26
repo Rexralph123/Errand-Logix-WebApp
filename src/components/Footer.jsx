@@ -1,3 +1,7 @@
+import logo from "../assets/images/Errand-logix-logo.png"; // adjust relative path as needed
+
+
+
 
 function scrollToId(id) {
   const el = document.getElementById(id);
@@ -10,7 +14,7 @@ function Footer() {
       <div className="footer-top">
         <div className="footer-brand">
           <div className="footer-logo">
-            <img src="/src/assets/images/Errand-Logix-Logo.png" alt="Errand Logix Logo" />
+            <img src={logo} alt="Errand Logix Logo" />
             <h2 className="footer-name">
               Errand<span>Logix</span>
             </h2>

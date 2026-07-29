@@ -2,16 +2,16 @@ import "./App.css";
     import { useEffect, useRef } from "react";
     import { Routes, Route, useLocation } from "react-router-dom";
 
-    import Navbar from "./components/Navbar";
-    import Footer from "./components/Footer";
-    import Logostyle from "./components/Logostyle";
-    import Hero from "./components/Hero"
-    import Services from "./components/Services";
-    import BookingForm from "./components/Bookingform";
+    import Navbar from "./components/common/Navbar";
+    import Footer from "./components/common/Footer";
+    import Logostyle from "./components/common/Logostyle";
+    import Hero from "./components/home/Hero"
+    import Services from "./components/home/Services";
+    import BookingForm from "./components/booking/Bookingform";
     import AboutPage from "./pages/AboutPage";
     import BookingPage from "./pages/BookingPage";
     import JobsPage from "./pages/JobsPage";
-    import Coverage from "./components/Coverage";
+    import Coverage from "./components/home/Coverage";
 
     function useReveal() {
     const rootRef = useRef(null);

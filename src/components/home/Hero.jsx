@@ -1,5 +1,5 @@
-import { Zap } from "/src/components/ui/Icon";
-import heroAgent from "../assets/images/Herosec-Agent.png";
+import { Zap } from "../ui/Icon";
+import heroAgent from "../../assets/images/Herosec-Agent.png";
 
 function scrollToId(id) {
     const el = document.getElementById(id);

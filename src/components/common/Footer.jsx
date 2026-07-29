@@ -1,4 +1,4 @@
-import logo from "../assets/images/Errand-logix-logo.png"; // adjust relative path as needed
+import logo from "../../assets/images/Errand-logix-logo.png"
 
 
 

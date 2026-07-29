@@ -147,29 +147,13 @@ errand-logix-webapp/
 │   ├── main.jsx
 │   └── vite-env.d.ts
 │
-│
-├── supabase/
-│   └── migration/
-│        └── 001_profiles_and_verification.sql
-│
-│
 ├── .env
 ├── .gitignore
-├── .gitattributes
-├── .hintrc
-├── eslint.config.js
-├── index.html
-├── package-lock.json
-├── tsconfig.app.json
-├── tsconfig.json
-├── tsconfig.node.json
-├── vite.config.json
-├── vite.config.ts
-├── wrangler.jsonc
 ├── package.json
 ├── vite.config.js
 ├── README.md
 └── _redirects
+
 
 
 using: 

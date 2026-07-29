@@ -1,6 +1,6 @@
 
-    import JobCard from "../components/Jobcard";
-    import PerkCard from "../components/PerkCard";
+    import JobCard from "../components/jobs/Jobcard";
+    import PerkCard from "../components/home/PerkCard";
 
     
     

@@ -1,20 +1,20 @@
 import { supabase } from "../lib/supabase";
 
 /**
- * Create a new account. Supabase sends the email OTP automatically
- * (make sure "Confirm email" is ON and the confirm-signup template
- * uses {{ .Token }} so it's a 6-digit code, not a magic link —
- * Supabase Dashboard > Authentication > Email Templates > Confirm signup).
+ * Create a new account. Supabase emails a confirmation link automatically
+ * (make sure "Confirm email" is ON — Supabase Dashboard > Authentication >
+ * Providers > Email). Clicking the link redirects the user back to
+ * /auth/callback, which finishes the sign-in.
  */
-export async function registerUser({ fullName, email, password, whatsappNumber }) {
+export async function registerUser({ fullName, email, password }) {
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
     options: {
       data: {
         full_name: fullName,
-        whatsapp_number: whatsappNumber, // must be E.164, e.g. +2348012345678
       },
+      emailRedirectTo: `${window.location.origin}/auth/callback`,
     },
   });
   if (error) throw error;
@@ -32,20 +32,13 @@ export async function logoutUser() {
   if (error) throw error;
 }
 
-/** Verify the 6-digit code Supabase emailed the user after signup */
-export async function verifyEmailOtp({ email, code }) {
-  const { data, error } = await supabase.auth.verifyOtp({
-    email,
-    token: code,
+/** Resend the confirmation email (e.g. user says they didn't get it) */
+export async function resendConfirmationEmail(email) {
+  const { error } = await supabase.auth.resend({
     type: "signup",
+    email,
+    options: { emailRedirectTo: `${window.location.origin}/auth/callback` },
   });
-  if (error) throw error;
-  return data;
-}
-
-/** Resend the email OTP (e.g. user says they didn't get it) */
-export async function resendEmailOtp(email) {
-  const { error } = await supabase.auth.resend({ type: "signup", email });
   if (error) throw error;
 }
 

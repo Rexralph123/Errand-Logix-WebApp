@@ -1,3 +1,18 @@
+import Login from "./auth/Login";
+import Register from "./auth/Register";
+// ...existing imports
+
+<Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/about" element={<AboutPage />} />
+  <Route path="/bookings" element={<BookingPage />} />
+  <Route path="/jobs" element={<JobsPage />} />
+  <Route path="/login" element={<Login />} />
+  <Route path="/register" element={<Register />} />
+</Routes>
+
+
+
 import "./App.css";
     import { useEffect, useRef } from "react";
     import { Routes, Route, useLocation } from "react-router-dom";

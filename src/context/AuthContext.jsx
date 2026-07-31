@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState, useCallback } from "react";
 import { supabase } from "../lib/supabase";
-import { getMyProfile } from "../services/authService";
+import { getMyProfile, logoutUser } from "../services/authService";
 
 const AuthContext = createContext(undefined);
 
@@ -48,6 +48,12 @@ export function AuthProvider({ children }) {
   // fully verified = email confirmed (WhatsApp OTP removed — no free provider exists for it)
   const isFullyVerified = !!profile?.emailVerified;
 
+  // onAuthStateChange (above) clears session/profile once this resolves —
+  // no need to setState here too.
+  const signOut = useCallback(async () => {
+    await logoutUser();
+  }, []);
+
   const value = {
     session,
     user: session?.user ?? null,
@@ -55,6 +61,7 @@ export function AuthProvider({ children }) {
     loading,
     isFullyVerified,
     refreshProfile,
+    signOut,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

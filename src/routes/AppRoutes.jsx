@@ -26,6 +26,7 @@ const Register = lazy(() => import("../auth/Register"));
 const ForgotPassword = lazy(() => import("../auth/ForgotPassword"));
 const ResetPassword = lazy(() => import("../auth/ResetPassword"));
 const VerifyEmail = lazy(() => import("../auth/VerifyEmail"));
+const AuthCallback = lazy(() => import("../auth/AuthCallback"));
 
 // --- Customer dashboard ---
 const CustomerDashboard = lazy(() => import("../dashboard/customer/Dashboard"));
@@ -203,6 +204,16 @@ function AppRoutes() {
                 <AuthLayout>
                   <PageWrapper>
                     <VerifyEmail />
+                  </PageWrapper>
+                </AuthLayout>
+              }
+            />
+            <Route
+              path="/auth/callback"
+              element={
+                <AuthLayout>
+                  <PageWrapper>
+                    <AuthCallback />
                   </PageWrapper>
                 </AuthLayout>
               }

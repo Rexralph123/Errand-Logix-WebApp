@@ -29,6 +29,16 @@
 /*
 errand-logix-webapp/
 │
+├── dist/
+│   ├── images/
+│   ├── icons/
+│   ├── index.html
+│   ├── robots.txt
+│   └── assets/
+│
+├── node_modules/
+│  
+│
 ├── public/
 │   ├── images/
 │   ├── icons/
@@ -42,12 +52,22 @@ errand-logix-webapp/
 │   │   ├── icons/
 │   │   └── fonts/
 │   │
+│   ├── auth/
+│   │   ├── Auth.css
+│   │   ├── AuthAlert.jsx
+│   │   ├── Authapi.js
+│   │   ├── AuthLayout.jsx
+│   │   ├── FormField.jsx
+│   │   └── Passwordfield.jsx
+│   │   
 │   ├── components/
 │   │   ├── common/
+│   │   │   │
 │   │   │   ├── Navbar.jsx
 │   │   │   ├── Footer.jsx
-│   │   │   ├── LogoStyle.jsx
-│   │   │   └── Button.jsx
+│   │   │   ├── logo.jsx
+│   │   │   └── LogoStyle.jsx
+│   │   │    
 │   │   │
 │   │   ├── home/
 │   │   │   ├── Hero.jsx
@@ -57,23 +77,37 @@ errand-logix-webapp/
 │   │   │   └── PerkCard.jsx
 │   │   │
 │   │   ├── booking/
-│   │   │   ├── BookingForm.jsx
-│   │   │   ├── BookingSummary.jsx
-│   │   │   └── PriceCard.jsx
-│   │   │
+│   │   │   └── BookingForm.jsx
+│   │   │  
 │   │   ├── jobs/
 │   │   │   └── JobCard.jsx
+│   │   │
+│   │   ├── auth/
+│   │   │   ├── Auth.css
+│   │   │   ├── AuthAlert.jsx
+│   │   │   ├── Authapi.js
+│   │   │   ├── AuthLayout.jsx
+│   │   │   ├── FormField.jsx
+│   │   │   └── Passwordfield.jsx
 │   │   │
 │   │   └── ui/
 │   │       └── Icons.jsx
 │   │
+│   ├── context/
+│   │   └── AuthContext.jsx
+│   │      
+│   ├── hook/
+│   │   └── useAuth.jsx
+│   │
+│   ├── lib/
+│   │   └── supabase.js
+│   │
 │   ├── pages/
-│   │   ├── HomePage.jsx
 │   │   ├── AboutPage.jsx
 │   │   ├── BookingPage.jsx
+│   │   ├── LoginPage.jsx
 │   │   ├── JobsPage.jsx
-│   │   ├── ContactPage.jsx
-│   │   └── PricingPage.jsx
+│   │   └── RegisterPage.jsx
 │   │
 │   ├── auth/
 │   │   ├── Login.jsx

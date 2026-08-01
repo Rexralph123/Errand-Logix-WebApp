@@ -1,108 +1,140 @@
-import Login from "./auth/Login";
-import Register from "./auth/Register";
-// ...existing imports
-
-<Routes>
-  <Route path="/" element={<Home />} />
-  <Route path="/about" element={<AboutPage />} />
-  <Route path="/bookings" element={<BookingPage />} />
-  <Route path="/jobs" element={<JobsPage />} />
-  <Route path="/login" element={<Login />} />
-  <Route path="/register" element={<Register />} />
-</Routes>
-
-
-
 import "./App.css";
-    import { useEffect, useRef } from "react";
-    import { Routes, Route, useLocation } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 
-    import Navbar from "./components/common/Navbar";
-    import Footer from "./components/common/Footer";
-    import Logostyle from "./components/common/Logostyle";
-    import Hero from "./components/home/Hero"
-    import Services from "./components/home/Services";
-    import BookingForm from "./components/booking/Bookingform";
-    import AboutPage from "./pages/AboutPage";
-    import BookingPage from "./pages/BookingPage";
-    import JobsPage from "./pages/JobsPage";
-    import Coverage from "./components/home/Coverage";
+import Navbar from "./components/common/Navbar";
+import Footer from "./components/common/Footer";
+import Logostyle from "./components/common/Logostyle";
+import Hero from "./components/home/Hero";
+import Services from "./components/home/Services";
+import Coverage from "./components/home/Coverage";
+import BookingForm from "./components/booking/Bookingform";
 
-    function useReveal() {
-    const rootRef = useRef(null);
+import AboutPage from "./pages/AboutPage";
+import BookingPage from "./pages/BookingPage";
+import JobsPage from "./pages/JobsPage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
 
-    useEffect(() => {
-        const nodes = rootRef.current?.querySelectorAll("[data-reveal]");
-        if (!nodes || nodes.length === 0) return;
+// import RegisterPage from "./pages/RegisterPage";
+// import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+// import VerifyEmailPage from "./pages/VerifyEmailPage";
 
-        const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("in-view");
-                observer.unobserve(entry.target);
-            }
-            });
-        },
-        { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
-        );
+function useReveal() {
+  const rootRef = useRef(null);
 
-        nodes.forEach((node) => observer.observe(node));
-        return () => observer.disconnect();
-    }, []);
+  useEffect(() => {
+    const nodes = rootRef.current?.querySelectorAll("[data-reveal]");
 
-    return rootRef;
-    }
+    if (!nodes?.length) return;
 
-    function Home() {
-    const location = useLocation();
-    const rootRef = useReveal();
-
-    useEffect(() => {
-        if (location.hash) {
-        const id = location.hash.replace("#", "");
-        const el = document.getElementById(id);
-        if (el) {
-            setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
-        }
-        }
-    }, [location]);
-
-    return (
-        <div ref={rootRef}>
-        <section className="Hero-section">
-            <Hero />
-        </section>
-
-        <Logostyle />
-
-        <Services />
-
-        <Coverage />
-
-        {/* =================== BOOKING FORM =================== */}
-        <BookingForm />
-        </div>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+        rootMargin: "0px 0px -60px 0px",
+      }
     );
+
+    nodes.forEach((node) => observer.observe(node));
+
+    return () => observer.disconnect();
+  }, []);
+
+  return rootRef;
+}
+
+function Home() {
+  const location = useLocation();
+  const rootRef = useReveal();
+
+  useEffect(() => {
+    if (!location.hash) return;
+
+    const id = location.hash.replace("#", "");
+    const element = document.getElementById(id);
+
+    if (element) {
+      setTimeout(() => {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 100);
     }
+  }, [location]);
 
-    function App() {
-    return (
-        <>
-        <Navbar />
+  return (
+    <div ref={rootRef}>
+      <section className="Hero-section">
+        <Hero />
+      </section>
 
-        <main className="main">
-            <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/bookings" element={<BookingPage />} />
-            <Route path="/jobs" element={<JobsPage />} />
-            </Routes>
-        </main>
+      <Logostyle />
 
-        <Footer />
-        </>
-    );
-    }
+      <Services />
 
-    export default App;
+      <Coverage />
+
+      <BookingForm />
+    </div>
+  );
+}
+
+function App() {
+  const location = useLocation();
+
+  const hideLayout = [
+    "/login",
+    "/signup",
+    "/forgot-password",
+    "/verify-email",
+  ].includes(location.pathname.toLowerCase());
+
+  return (
+    <>
+      {!hideLayout && <Navbar />}
+
+      <main className="main">
+        <Routes>
+          <Route path="/" element={<Home />} />
+
+          <Route path="/about" element={<AboutPage />} />
+
+          <Route path="/bookings" element={<BookingPage />} />
+
+          <Route path="/jobs" element={<JobsPage />} />
+
+          <Route path="/login" element={<LoginPage />} />
+
+          <Route path="/signup" element={<RegisterPage />} />
+
+          {/*
+          <Route path="/register" element={<RegisterPage />} />
+
+          <Route
+            path="/forgot-password"
+            element={<ForgotPasswordPage />}
+          />
+
+          <Route
+            path="/verify-email"
+            element={<VerifyEmailPage />}
+          />
+          */}
+        </Routes>
+      </main>
+
+      {!hideLayout && <Footer />}
+    </>
+  );
+}
+
+export default App;

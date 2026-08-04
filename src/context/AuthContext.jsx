@@ -1,8 +1,30 @@
+
 import { createContext, useContext, useEffect, useState, useCallback } from "react";
 import { supabase } from "../lib/supabase";
-import { getMyProfile, logoutUser } from "../services/authService";
+import { getMyProfile, logoutUser } from "../services/authApi";
 
 const AuthContext = createContext(undefined);
+
+// ==========================
+// DEVELOPMENT MODE
+// ==========================
+const DEV_MODE = true; // Change to false when you're ready to use Supabase
+
+const DEV_USER = {
+  id: "dev-user-1",
+  email: "rex@example.com",
+};
+
+const DEV_PROFILE = {
+  full_name: "Rex Michael",
+  email: "rex@example.com",
+  whatsapp_number: "08012345678",
+  address: "12 Ago Palace Way",
+  area: "Ago Palace Way",
+  landmark: "Opposite First Bank",
+  emailVerified: true,
+  profileComplete: true,
+};
 
 export function AuthProvider({ children }) {
   const [session, setSession] = useState(null);
@@ -10,6 +32,11 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   const refreshProfile = useCallback(async () => {
+    if (DEV_MODE) {
+      setProfile(DEV_PROFILE);
+      return DEV_PROFILE;
+    }
+
     try {
       const p = await getMyProfile();
       setProfile(p);
@@ -21,23 +48,44 @@ export function AuthProvider({ children }) {
   }, []);
 
   useEffect(() => {
+    // ==========================
+    // DEVELOPMENT MODE
+    // ==========================
+    if (DEV_MODE) {
+      setSession({
+        user: DEV_USER,
+      });
+
+      setProfile(DEV_PROFILE);
+      setLoading(false);
+      return;
+    }
+
     let mounted = true;
 
     supabase.auth.getSession().then(async ({ data: { session } }) => {
       if (!mounted) return;
+
       setSession(session);
-      if (session) await refreshProfile();
+
+      if (session) {
+        await refreshProfile();
+      }
+
       setLoading(false);
     });
 
-    const { data: listener } = supabase.auth.onAuthStateChange(async (_event, session) => {
-      setSession(session);
-      if (session) {
-        await refreshProfile();
-      } else {
-        setProfile(null);
+    const { data: listener } = supabase.auth.onAuthStateChange(
+      async (_event, session) => {
+        setSession(session);
+
+        if (session) {
+          await refreshProfile();
+        } else {
+          setProfile(null);
+        }
       }
-    });
+    );
 
     return () => {
       mounted = false;
@@ -45,30 +93,38 @@ export function AuthProvider({ children }) {
     };
   }, [refreshProfile]);
 
-  // fully verified = email confirmed (WhatsApp OTP removed — no free provider exists for it)
-  const isFullyVerified = !!profile?.emailVerified;
-
-  // onAuthStateChange (above) clears session/profile once this resolves —
-  // no need to setState here too.
   const signOut = useCallback(async () => {
+    if (DEV_MODE) {
+      console.log("Development Mode: Sign Out");
+      return;
+    }
+
     await logoutUser();
   }, []);
 
   const value = {
     session,
-    user: session?.user ?? null,
+    user: DEV_MODE ? DEV_USER : session?.user ?? null,
     profile,
     loading,
-    isFullyVerified,
+    isFullyVerified: !!profile?.emailVerified,
     refreshProfile,
     signOut,
   };
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={value}>
+      {children}
+    </AuthContext.Provider>
+  );
 }
 
 export function useAuth() {
   const ctx = useContext(AuthContext);
-  if (ctx === undefined) throw new Error("useAuth must be used within an AuthProvider");
+
+  if (ctx === undefined) {
+    throw new Error("useAuth must be used within an AuthProvider");
+  }
+
   return ctx;
 }

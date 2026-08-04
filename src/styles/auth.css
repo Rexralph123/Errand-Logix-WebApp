@@ -781,3 +781,31 @@
     display: none;
   }
 }
+
+
+
+
+
+
+/* ===== Verify Email Page ===== */
+.verify-card {
+  text-align: center;
+}
+
+.verify-icon-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #111;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.verify-divider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.08);
+  margin: 24px 0;
+}

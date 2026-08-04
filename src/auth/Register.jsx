@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { registerUser } from "../services/authService";
+import { registerUser } from "../services/authApi";
 
 export default function Register() {
   const navigate = useNavigate();
   const [form, setForm] = useState({
     fullName: "",
     email: "",
-    whatsappNumber: "",
     password: "",
     confirmPassword: "",
   });
@@ -16,15 +15,6 @@ export default function Register() {
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
-  }
-
-  function normalizeWhatsapp(raw) {
-    // Nigerian-friendly normalizer: 0801... -> +234801..., otherwise trust E.164 input
-    const trimmed = raw.trim().replace(/[\s-]/g, "");
-    if (trimmed.startsWith("+")) return trimmed;
-    if (trimmed.startsWith("0")) return "+234" + trimmed.slice(1);
-    if (trimmed.startsWith("234")) return "+" + trimmed;
-    return trimmed;
   }
 
   async function handleSubmit(e) {
@@ -46,7 +36,6 @@ export default function Register() {
         fullName: form.fullName,
         email: form.email,
         password: form.password,
-        whatsappNumber: normalizeWhatsapp(form.whatsappNumber),
       });
       navigate("/verify-email", { state: { email: form.email } });
     } catch (err) {
@@ -88,20 +77,6 @@ export default function Register() {
             onChange={handleChange}
             required
           />
-        </label>
-
-        <label className="auth-label">
-          WhatsApp number
-          <input
-            className="auth-input"
-            type="tel"
-            name="whatsappNumber"
-            placeholder="e.g. 0801 234 5678"
-            value={form.whatsappNumber}
-            onChange={handleChange}
-            required
-          />
-          <span className="auth-hint">We'll use this to reach you about your errands/deliveries.</span>
         </label>
 
         <label className="auth-label">

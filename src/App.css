@@ -2956,6 +2956,19 @@ Responsive — Jobs page
   color: #111;
 }
 
+.auth-input-icon select {
+  padding-left: 40px !important;
+  appearance: none;
+  cursor: pointer;
+}
+
+.auth-avatar-initials {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  color: #999;
+}
+
 .field select {
   font-family: "Poppins", sans-serif;
   font-size: 14px;

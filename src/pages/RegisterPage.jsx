@@ -12,7 +12,7 @@ import {
   ShieldCheck,
   AlertCircle,
 } from "lucide-react";
-import { registerUser } from "../services/authService";
+import { registerUser } from "../services/authApi";
 
 import logo from "../assets/images/Errand-logix-logo.png";
 import heroAgent from "../assets/images/Herosec-Agent.png";

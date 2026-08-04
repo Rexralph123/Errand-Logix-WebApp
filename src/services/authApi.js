@@ -1,19 +1,12 @@
+// src/services/authApi.js
 import { supabase } from "../lib/supabase";
 
-/**
- * Create a new account. Supabase emails a confirmation link automatically
- * (make sure "Confirm email" is ON — Supabase Dashboard > Authentication >
- * Providers > Email). Clicking the link redirects the user back to
- * /auth/callback, which finishes the sign-in.
- */
-export async function registerUser({ fullName, email, password }) {
+export async function registerUser({ fullName, email, password, whatsappNumber }) {
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
     options: {
-      data: {
-        full_name: fullName,
-      },
+      data: { full_name: fullName, whatsapp_number: whatsappNumber },
       emailRedirectTo: `${window.location.origin}/auth/callback`,
     },
   });
@@ -32,7 +25,14 @@ export async function logoutUser() {
   if (error) throw error;
 }
 
-/** Resend the confirmation email (e.g. user says they didn't get it) */
+export async function signInWithGoogle() {
+  const { error } = await supabase.auth.signInWithOAuth({
+    provider: "google",
+    options: { redirectTo: `${window.location.origin}/auth/callback` },
+  });
+  if (error) throw error;
+}
+
 export async function resendConfirmationEmail(email) {
   const { error } = await supabase.auth.resend({
     type: "signup",
@@ -42,11 +42,8 @@ export async function resendConfirmationEmail(email) {
   if (error) throw error;
 }
 
-/** Fetch the current user's profile + verification flags */
 export async function getMyProfile() {
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const { data: { user } } = await supabase.auth.getUser();
   if (!user) return null;
 
   const { data, error } = await supabase
@@ -57,6 +54,20 @@ export async function getMyProfile() {
   if (error) throw error;
 
   return { ...data, email: user.email, emailVerified: !!user.email_confirmed_at };
+}
+
+export async function updateProfile({ fullName, whatsappNumber }) {
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) throw new Error("Not signed in.");
+
+  const { data, error } = await supabase
+    .from("profiles")
+    .update({ full_name: fullName, whatsapp_number: whatsappNumber })
+    .eq("id", user.id)
+    .select()
+    .single();
+  if (error) throw error;
+  return data;
 }
 
 export async function requestPasswordReset(email) {

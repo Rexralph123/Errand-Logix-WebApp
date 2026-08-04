@@ -1,0 +1,1347 @@
+/*=======CONTENTS=========
+1. DASHBOARD SHELL (sidebar + main)
+2. SIDEBAR
+3. TOPBAR
+4. PROMO BANNER
+5. HERO
+6. QUICK STATS
+7. QUICK ACTIONS
+8. ACTIVE BOOKING
+9. BOOKING HISTORY
+10. SIDE WIDGETS (rewards / addresses / notifications)
+11. SUPPORT
+12. SHARED (status pills, empty state, avatar, buttons)
+13. LOADING SCREEN
+14. RESPONSIVE
+==========================
+Same system as App.css: Poppins + Paytone One, black / white /
+#F59E0B amber, aqua as a rare hover accent. New classes are
+namespaced "ud-" (user dashboard) so nothing here collides with
+the marketing site's classes.
+==========================*/
+
+/* ==================== 1. DASHBOARD SHELL ==================== */
+.ud-dashboard {
+  display: flex;
+  min-height: 100vh;
+  background: #f7f7f7;
+}
+
+.ud-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.ud-content {
+  padding: 0 40px 70px;
+  max-width: 1320px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.ud-section {
+  padding: 36px 0 0;
+}
+
+.ud-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.ud-section-title h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+  color: #111;
+}
+
+.ud-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #b3760a;
+  cursor: pointer;
+}
+.ud-link-btn:hover {
+  color: #f59e0b;
+}
+.ud-link-btn--sm {
+  font-size: 12.5px;
+}
+
+/* ==================== 2. SIDEBAR ==================== */
+.ud-sidebar {
+  width: 268px;
+  flex-shrink: 0;
+  background: #0a0a0a;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 22px 18px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.ud-sidebar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 8px 22px;
+}
+
+.ud-sidebar-logo {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+.ud-sidebar-close {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.ud-sidebar-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 22px;
+}
+
+.ud-sidebar-profile-info {
+  min-width: 0;
+}
+.ud-sidebar-profile-name {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ud-sidebar-profile-email {
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: #999;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ud-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+
+.ud-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  padding: 11px 12px;
+  color: rgba(255, 255, 255, 0.75);
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: left;
+  transition: 0.2s;
+}
+.ud-nav-item:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+}
+.ud-nav-item.active {
+  background: #f59e0b;
+  color: #111;
+}
+.ud-nav-item.active svg {
+  color: #111;
+}
+
+.ud-sidebar-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 10px;
+  margin-top: 10px;
+}
+.ud-nav-item--logout:hover {
+  background: rgba(180, 35, 24, 0.18);
+  color: #ff8a80;
+}
+
+.ud-sidebar-overlay {
+  display: none;
+}
+
+/* ==================== 3. TOPBAR ==================== */
+.ud-topbar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 40px 0;
+  max-width: 1320px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.ud-topbar-menu-btn {
+  display: none;
+}
+
+.ud-topbar-greeting {
+  flex: 1;
+  min-width: 0;
+}
+.ud-topbar-greeting h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #111;
+  margin: 0;
+}
+.ud-topbar-greeting p {
+  font-family: "Poppins", sans-serif;
+  font-size: 13.5px;
+  font-weight: 300;
+  color: #777;
+  margin-top: 2px;
+}
+
+.ud-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.ud-topbar-notif {
+  position: relative;
+}
+
+.ud-topbar-avatar-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  line-height: 0;
+}
+
+.ud-notif-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 300px;
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 14px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+  padding: 14px;
+  z-index: 200;
+}
+.ud-notif-dropdown-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 8px;
+}
+.ud-notif-dropdown-all {
+  width: 100%;
+  margin-top: 8px;
+  background: none;
+  border: none;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #b3760a;
+  cursor: pointer;
+}
+
+/* ==================== 4. PROMO BANNER ==================== */
+.ud-promo {
+  margin: 18px 40px 0;
+  background: #111;
+  color: #fff;
+  border-radius: 12px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ud-promo svg {
+  color: #f59e0b;
+  flex-shrink: 0;
+}
+.ud-promo p {
+  flex: 1;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  margin: 0;
+}
+.ud-promo button {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  padding: 2px;
+  flex-shrink: 0;
+}
+.ud-promo button:hover {
+  color: #fff;
+}
+
+/* ==================== 5. HERO ==================== */
+.ud-hero {
+  margin-top: 28px;
+  background: #0a0a0a;
+  border-radius: 22px;
+  padding: 42px 46px;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  align-items: center;
+  gap: 30px;
+  overflow: hidden;
+  position: relative;
+}
+
+.ud-hero-text {
+  position: relative;
+  z-index: 2;
+}
+
+.ud-hero-tag {
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 999px;
+  padding: 6px 14px;
+  margin-bottom: 16px;
+}
+
+.ud-hero-text h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #fff;
+  margin-bottom: 12px;
+  max-width: 460px;
+}
+.ud-hero-text h2 span {
+  color: #f59e0b;
+}
+
+.ud-hero-text p {
+  font-family: "Poppins", sans-serif;
+  font-size: 14.5px;
+  font-weight: 300;
+  color: #bdbdbd;
+  line-height: 1.7;
+  max-width: 420px;
+  margin-bottom: 26px;
+}
+
+.ud-hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.ud-hero-art {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ud-route-svg {
+  width: 100%;
+  max-width: 320px;
+}
+
+/* ==================== 6. QUICK STATS ==================== */
+.ud-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.ud-stat-card {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: 0.25s;
+}
+.ud-stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+}
+
+.ud-stat-icon {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  border-radius: 10px;
+  background: #111;
+  color: #f59e0b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ud-stat-value {
+  font-family: "Paytone One", sans-serif;
+  font-size: 24px;
+  color: #111;
+  line-height: 1;
+}
+.ud-stat-label {
+  font-family: "Poppins", sans-serif;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #888;
+  margin-top: 4px;
+}
+
+/* ==================== 7. QUICK ACTIONS ==================== */
+.ud-quick-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
+}
+
+.ud-quick-action-card {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 14px;
+  padding: 20px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.2s;
+}
+.ud-quick-action-card:hover {
+  border-color: #111;
+  transform: translateY(-4px);
+}
+.ud-quick-action-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #f5f5f5;
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+}
+.ud-quick-action-card:hover .ud-quick-action-icon {
+  background: #f59e0b;
+  color: #fff;
+}
+.ud-quick-action-card span {
+  font-family: "Poppins", sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* ==================== 8. ACTIVE BOOKING ==================== */
+.ud-active-card {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 20px;
+  padding: 28px 30px;
+}
+
+.ud-active-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+.ud-active-id {
+  font-family: "Poppins", sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #999;
+}
+.ud-active-type {
+  font-family: "Poppins", sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: #111;
+  margin-top: 2px;
+}
+
+.ud-route {
+  display: flex;
+  align-items: stretch;
+  gap: 14px;
+  padding: 18px;
+  background: #fafafa;
+  border-radius: 14px;
+  margin-bottom: 24px;
+}
+.ud-route-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  flex: 1;
+}
+.ud-route-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+.ud-route-dot--start {
+  background: #f59e0b;
+}
+.ud-route-dot--end {
+  background: #111;
+  box-shadow: 0 0 0 2px #111;
+  background: #fff;
+  border: 2px solid #111;
+}
+.ud-route-label {
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #999;
+}
+.ud-route-address {
+  font-family: "Poppins", sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #222;
+  margin-top: 2px;
+}
+.ud-route-connector {
+  width: 1px;
+  background: repeating-linear-gradient(to bottom, #ccc 0 4px, transparent 4px 8px);
+  margin: 4px 0;
+}
+
+.ud-progress {
+  margin-bottom: 24px;
+}
+.ud-progress-track {
+  height: 6px;
+  background: #eee;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.ud-progress-track--sm {
+  height: 5px;
+  margin: 10px 0 14px;
+}
+.ud-progress-fill {
+  height: 100%;
+  background: #f59e0b;
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+.ud-progress-steps {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.ud-progress-steps span {
+  font-family: "Poppins", sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #bbb;
+  text-align: center;
+  flex: 1;
+}
+.ud-progress-steps span.done {
+  color: #111;
+}
+.ud-progress-steps span:first-child {
+  text-align: left;
+}
+.ud-progress-steps span:last-child {
+  text-align: right;
+}
+
+.ud-active-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 20px;
+  border-top: 1px solid #f0f0f0;
+}
+.ud-runner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.ud-runner-name {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #111;
+}
+.ud-runner-rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: "Poppins", sans-serif;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #777;
+  margin-top: 2px;
+}
+.ud-runner-rating svg {
+  color: #f59e0b;
+}
+
+.ud-active-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ud-btn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #fff;
+  border: 1.5px solid #ddd;
+  border-radius: 999px;
+  padding: 9px 16px;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #333;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.ud-btn-pill:hover {
+  border-color: #111;
+}
+.ud-btn-pill--dark {
+  background: #111;
+  border-color: #111;
+  color: #fff;
+}
+.ud-btn-pill--dark:hover {
+  background: #f59e0b;
+  border-color: #f59e0b;
+  color: #111;
+}
+
+/* ==================== 9. BOOKING HISTORY ==================== */
+.ud-split {
+  display: grid;
+  grid-template-columns: 1.65fr 1fr;
+  gap: 26px;
+  padding: 36px 0 0;
+  align-items: start;
+}
+
+.ud-history-list {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.ud-history-row {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 0.9fr auto auto;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 22px;
+  border-bottom: 1px solid #f2f2f2;
+}
+.ud-history-row:last-child {
+  border-bottom: none;
+}
+.ud-history-id {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #111;
+}
+.ud-history-type {
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: #888;
+  margin-top: 1px;
+}
+.ud-history-date,
+.ud-history-amount {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #444;
+}
+.ud-history-view {
+  justify-self: end;
+}
+
+/* ==================== 10. SIDE WIDGETS ==================== */
+.ud-split-side {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ud-widget {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 18px;
+  padding: 22px;
+}
+.ud-widget-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.ud-widget-head h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #111;
+}
+.ud-widget-btn {
+  width: 100%;
+  margin-top: 6px;
+  padding: 11px;
+  font-size: 13px;
+}
+.ud-widget-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  background: #fafafa;
+  border: 1.5px dashed #ddd;
+  border-radius: 10px;
+  padding: 11px;
+  margin-top: 6px;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #666;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.ud-widget-add:hover {
+  border-color: #f59e0b;
+  color: #b3760a;
+}
+
+/* Rewards */
+.ud-level-badge {
+  font-family: "Poppins", sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #b3760a;
+  background: #fef3e2;
+  border: 1px solid #fbe0ad;
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+.ud-rewards-points {
+  font-family: "Paytone One", sans-serif;
+  font-size: 34px;
+  color: #111;
+  line-height: 1;
+}
+.ud-rewards-caption {
+  font-family: "Poppins", sans-serif;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #888;
+  margin-top: 4px;
+}
+
+/* Addresses */
+.ud-address-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f2f2f2;
+}
+.ud-address-item:last-of-type {
+  border-bottom: none;
+}
+.ud-address-icon {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border-radius: 8px;
+  background: #f5f5f5;
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ud-address-info {
+  flex: 1;
+  min-width: 0;
+}
+.ud-address-info p {
+  font-family: "Poppins", sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #111;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ud-address-default {
+  font-family: "Poppins", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #1f8a3d;
+  background: #eafbe7;
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+.ud-address-info span {
+  display: block;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: #888;
+  margin-top: 2px;
+}
+
+/* ==================== 11. SUPPORT ==================== */
+.ud-support-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.ud-support-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 14px;
+  padding: 18px;
+  font-family: "Poppins", sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #222;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.ud-support-item svg {
+  color: #f59e0b;
+  flex-shrink: 0;
+}
+.ud-support-item:hover {
+  border-color: #111;
+  transform: translateY(-3px);
+}
+
+/* ==================== 12. SHARED ==================== */
+.ud-status {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  font-family: "Poppins", sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 5px 12px;
+  white-space: nowrap;
+}
+.ud-status--success {
+  background: #eafbe7;
+  color: #1f8a3d;
+}
+.ud-status--cancelled {
+  background: #f2f2f2;
+  color: #777;
+}
+.ud-status--progress {
+  background: #fef3e2;
+  color: #b3760a;
+}
+.ud-status--pending {
+  background: #fef2f2;
+  color: #b42318;
+}
+
+.ud-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #f59e0b;
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.ud-avatar--md {
+  width: 42px;
+  height: 42px;
+  font-size: 14px;
+}
+.ud-avatar--lg {
+  width: 46px;
+  height: 46px;
+  font-size: 15px;
+}
+
+.ud-icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid #ececec;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: 0.2s;
+}
+.ud-icon-btn:hover {
+  border-color: #111;
+  color: #111;
+}
+.ud-icon-btn--sm {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+}
+
+.ud-badge-dot {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  min-width: 17px;
+  height: 17px;
+  border-radius: 999px;
+  background: #f59e0b;
+  color: #111;
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  border: 2px solid #f7f7f7;
+}
+
+.ud-notif-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f2f2f2;
+}
+.ud-notif-item:last-child {
+  border-bottom: none;
+}
+.ud-notif-item-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: transparent;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+.ud-notif-item.unread .ud-notif-item-dot {
+  background: #f59e0b;
+}
+.ud-notif-item p {
+  font-family: "Poppins", sans-serif;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #333;
+  line-height: 1.5;
+}
+.ud-notif-item span {
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: #aaa;
+}
+
+.ud-empty {
+  background: #fff;
+  border: 1.5px dashed #ddd;
+  border-radius: 18px;
+  padding: 50px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.ud-empty-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #f5f5f5;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.ud-empty h4 {
+  font-family: "Poppins", sans-serif;
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #111;
+}
+.ud-empty p {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  color: #888;
+  max-width: 280px;
+  margin-bottom: 14px;
+}
+
+/* ==================== 13. LOADING SCREEN ==================== */
+.ud-loading-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: #fff;
+}
+.ud-loading-mark {
+  font-family: "Poppins", sans-serif;
+  font-size: 26px;
+  font-weight: 200;
+  color: #111;
+}
+.ud-loading-mark span {
+  font-family: "Paytone One", sans-serif;
+  font-weight: 600;
+  color: #f59e0b;
+}
+.ud-loading-bar {
+  width: 160px;
+  height: 4px;
+  border-radius: 999px;
+  background: #eee;
+  overflow: hidden;
+}
+.ud-loading-bar-fill {
+  width: 40%;
+  height: 100%;
+  background: #f59e0b;
+  border-radius: 999px;
+  animation: ud-loading-slide 1.1s ease-in-out infinite;
+}
+@keyframes ud-loading-slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(350%);
+  }
+}
+
+/* ==================== 14. RESPONSIVE ==================== */
+@media (max-width: 1180px) {
+  .ud-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ud-support-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ud-split {
+    grid-template-columns: 1fr;
+  }
+  .ud-hero {
+    grid-template-columns: 1fr;
+  }
+  .ud-hero-art {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .ud-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 300;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.3);
+  }
+  .ud-sidebar.open {
+    transform: translateX(0);
+  }
+  .ud-sidebar-close {
+    display: block;
+  }
+  .ud-sidebar-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    z-index: 250;
+    cursor: pointer;
+  }
+  .ud-topbar-menu-btn {
+    display: flex;
+  }
+  .ud-topbar,
+  .ud-content {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .ud-promo {
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+}
+
+@media (max-width: 720px) {
+  .ud-topbar-greeting h1 {
+    font-size: 20px;
+  }
+  .ud-topbar-greeting p {
+    display: none;
+  }
+  .ud-hero {
+    padding: 30px 26px;
+  }
+  .ud-hero-text h2 {
+    font-size: 26px;
+  }
+  .ud-stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .ud-quick-actions-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .ud-support-grid {
+    grid-template-columns: 1fr;
+  }
+  .ud-history-row {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "main status"
+      "date amount";
+    row-gap: 6px;
+  }
+  .ud-history-main {
+    grid-area: main;
+  }
+  .ud-status {
+    grid-area: status;
+  }
+  .ud-history-date {
+    grid-area: date;
+  }
+  .ud-history-amount {
+    grid-area: amount;
+    justify-self: end;
+  }
+  .ud-history-view {
+    display: none;
+  }
+  .ud-active-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .ud-active-actions {
+    justify-content: stretch;
+  }
+  .ud-btn-pill {
+    flex: 1;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .ud-quick-actions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ud-stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .ud-notif-dropdown {
+    width: 260px;
+  }
+}
+
+
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 22px;
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.btn-solid-white   { background: #fff; color: #111; border: 1.5px solid #fff; }
+.btn-solid-white:hover  { background: transparent; color: #fff; }
+.btn-outline-white { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.4); }
+.btn-outline-white:hover { border-color: #fff; }
+.btn-outline-black { background: transparent; color: #111; border: 1.5px solid #ddd; }
+.btn-outline-black:hover  { border-color: #111; }
+.btn-solid-black   { background: #111; color: #fff; border: 1.5px solid #111; }
+.btn-solid-black:hover    { background: #f59e0b; border-color: #f59e0b; color: #111; }
+
+.logo-style { font-family: "Poppins", sans-serif; font-weight: 700; color: #fff; }
+.logo-style span { color: #f59e0b; }
+
+
+
+
+/* ==================== 15. BOOK ERRAND PAGE ==================== */
+.ud-book-page {
+  padding: 28px 0 10px;
+}
+
+/* BookingForm ships with marketing-page spacing (padding: 0 80px 100px)
+   and a centered heading meant to sit under a hero — reset both so it
+   reads as a normal dashboard section instead. */
+.ud-book-page .booking {
+  padding: 0 !important;
+}
+.ud-book-page .section-head {
+  padding-top: 0 !important;
+  text-align: left !important;
+  margin-bottom: 22px;
+}
+.ud-book-page .section-head.center {
+  align-items: flex-start;
+}
+
+.ud-book-page .booking-card {
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+}
+
+@media (max-width: 900px) {
+  .ud-book-page {
+    padding-top: 18px;
+  }
+}
+
+
+
+
+/* ==================== 16. REWARDS PAGE ==================== */
+.ud-rewards-page {
+  background: #fff;
+  border: 1.5px dashed #ddd;
+  border-radius: 20px;
+  padding: 70px 24px;
+  max-width: 460px;
+  margin: 20px auto 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.ud-rewards-page-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #fef3e2;
+  color: #b3760a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+.ud-rewards-page h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111;
+}
+.ud-rewards-page p {
+  font-family: "Poppins", sans-serif;
+  font-size: 13.5px;
+  font-weight: 300;
+  color: #888;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+/* Zero-state text for the sidebar Rewards widget on the main dashboard */
+.ud-widget-empty-text {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  color: #888;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}

@@ -11,6 +11,9 @@ import {
   AlertCircle,
 } from "lucide-react";
 
+import { supabase } from "../lib/supabase";
+import { getMyProfile } from "../services/authApi";
+
 import logo from "../assets/images/Errand-logix-logo.png";
 import heroAgent from "../assets/images/Herosec-Agent.png";
 import "../styles/auth.css";
@@ -30,8 +33,11 @@ function LoginPage() {
   async function handleGoogleSignIn() {
     setError("");
     try {
-      // TODO: wire up to Supabase — supabase.auth.signInWithOAuth({ provider: "google" })
-      await signInWithGoogle();
+      const { error: oauthError } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+      });
+      if (oauthError) throw oauthError;
+      // Supabase redirects away for OAuth, so there's nothing else to do here.
     } catch (err) {
       setError(err.message || "We couldn't connect to Google. Please try again.");
     }
@@ -48,7 +54,12 @@ function LoginPage() {
 
     setLoading(true);
     try {
-      await loginUser(form);
+      const { error: signInError } = await supabase.auth.signInWithPassword({
+        email: form.email,
+        password: form.password,
+      });
+      if (signInError) throw signInError;
+
       const profile = await getMyProfile();
 
       if (!profile?.emailVerified) {

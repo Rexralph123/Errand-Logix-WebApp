@@ -68,12 +68,12 @@ export function Icon({ name, size = 18, ...rest }) {
 const NAV_ITEMS = [
   { key: "dashboard", label: "Dashboard", icon: "home", to: "/dashboard" },
   { key: "book", label: "Book Errand", icon: "book", to: "/dashboard/book" },
-  { key: "history", label: "My Bookings", icon: "history", to: "/dashboard#history" },
+  { key: "history", label: "My Bookings", icon: "history", to: "/dashboard/bookings" },
   { key: "rewards", label: "Rewards", icon: "gift", to: "/dashboard/rewards" },  
-  { key: "addresses", label: "Saved Addresses", icon: "pin", to: "/dashboard#addresses" },
-  { key: "notifications", label: "Notifications", icon: "bell", to: "/dashboard#notifications" },
-  { key: "support", label: "Support", icon: "help", to: "/dashboard#support" },
-  { key: "settings", label: "Settings", icon: "settings", to: null },
+  { key: "addresses", label: "Saved Addresses", icon: "pin", to: "/dashboard/addresses" },
+  { key: "notifications", label: "Notifications", icon: "bell", to: "/dashboard/notifications" },
+  { key: "support", label: "Support", icon: "help", to: "/dashboard/support" },
+  { key: "settings", label: "Settings", icon: "settings", to: "/dashboard/settings" },
 ];
 
 const NOTIFICATIONS = [
@@ -157,13 +157,17 @@ export default function DashboardShell({ active, title, subtitle, showPromo = tr
           </button>
         </div>
 
-        <div className="ud-sidebar-profile">
+        <Link
+          to="/dashboard/profile"
+          className="ud-sidebar-profile ud-sidebar-profile--link"
+          onClick={() => setSidebarOpen(false)}
+        >
           <div className="ud-avatar ud-avatar--lg">{initials}</div>
           <div className="ud-sidebar-profile-info">
             <p className="ud-sidebar-profile-name">{displayName}</p>
             <p className="ud-sidebar-profile-email">{user?.email}</p>
           </div>
-        </div>
+        </Link>
 
         <nav className="ud-sidebar-nav">
           {NAV_ITEMS.map((item) =>
@@ -240,7 +244,7 @@ export default function DashboardShell({ active, title, subtitle, showPromo = tr
                     </div>
                   ))}
                   <Link
-                    to="/dashboard#notifications"
+                    to="/dashboard/notifications"
                     className="ud-notif-dropdown-all"
                     onClick={() => setNotifOpen(false)}
                   >
@@ -250,7 +254,14 @@ export default function DashboardShell({ active, title, subtitle, showPromo = tr
               )}
             </div>
 
-            <div className="ud-avatar">{initials}</div>
+            <button
+              type="button"
+              className="ud-topbar-avatar-btn"
+              onClick={() => navigate("/dashboard/profile")}
+              aria-label="View profile"
+            >
+              <div className="ud-avatar">{initials}</div>
+            </button>
           </div>
         </header>
 

@@ -96,11 +96,6 @@ errand-logix-webapp/
 │   ├── context/
 │   │   └── AuthContext.jsx
 │   │      
-│   ├── hook/
-│   │   └── useAuth.jsx
-│   │
-│   ├── lib/
-│   │   └── supabase.js
 │   │
 │   ├── pages/
 │   │   ├── AboutPage.jsx
@@ -146,13 +141,6 @@ errand-logix-webapp/
 │   │   ├── DashboardLayout.jsx
 │   │   └── AuthLayout.jsx
 │   │
-│   ├── context/
-│   │   ├── AuthContext.jsx
-│   │   └── BookingContext.jsx
-│   │
-│   ├── hooks/
-│   │   ├── useAuth.js
-│   │   └── useBookings.js
 │   │
 │   ├── services/
 │   │   ├── authService.js

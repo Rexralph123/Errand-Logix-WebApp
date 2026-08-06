@@ -25,10 +25,15 @@ import CompleteProfilePage from "./pages/users-pages/CompleteProfilePage";
 
 import BookErrandPage from "./pages/users-pages/BookErrandPage";
 import RewardsPage from "./pages/users-pages/RewardsPage";
+import SavedAddressesPage from "./pages/users-pages/Savedaddressespage";
+import NotificationsPage from "./pages/users-pages/Notificationspage";
+import SupportPage from "./pages/users-pages/Supportpage";
+import SettingsPage from "./pages/users-pages/SettingsPage";
+import MyBookingsPage from "./pages/users-pages/MyBookingsPage";
+
 
 
 // import ForgotPasswordPage from "./pages/ForgotPasswordPage";
-// import VerifyEmailPage from "./pages/VerifyEmailPage";
 
 function useReveal() {
   const rootRef = useRef(null);
@@ -100,18 +105,20 @@ function Home() {
 
 function App() {
   const location = useLocation();
+  const path = location.pathname.toLowerCase();
 
-  const hideLayout = [
-    "/login",
-    "/signup",
-    "/forgot-password",
-    "/verify-email",
-    "/email-verified",
-    "/complete-profile",
-    "/dashboard",
-    "/dashboard/book",
-    "/dashboard/rewards",
-  ].includes(location.pathname.toLowerCase());
+  // Every /dashboard/* route (and any new ones added later) hides the
+  // marketing Navbar/Footer, plus a fixed list of standalone auth screens.
+  const hideLayout =
+    path.startsWith("/dashboard") ||
+    [
+      "/login",
+      "/signup",
+      "/forgot-password",
+      "/verify-email",
+      "/email-verified",
+      "/complete-profile",
+    ].includes(path);
 
   return (
     <AuthProvider>
@@ -135,12 +142,25 @@ function App() {
 
           <Route path="/email-verified" element={<EmailVerifiedPage />} />
 
-          // eslint-disable-next-line no-undef, no-undef
           <Route path="/dashboard/book" element={<BookErrandPage />} />
 
           <Route path="/dashboard/rewards" element={<RewardsPage />} />
 
-          <Route path="/complete-profile" element={
+          <Route path="/dashboard/addresses" element={<SavedAddressesPage />} />
+
+          <Route path="/dashboard/notifications" element={<NotificationsPage />} />
+
+          <Route path="/dashboard/support" element={<SupportPage />} />
+
+          <Route path="/dashboard/settings" element={<SettingsPage />} />
+
+          <Route path="/dashboard/profile" element={<CompleteProfilePage />} />
+
+          <Route path="/dashboard/bookings" element={<MyBookingsPage />} />
+
+          <Route
+            path="/complete-profile"
+            element={
               <ProtectedRoute>
                 <CompleteProfilePage />
               </ProtectedRoute>
@@ -153,21 +173,11 @@ function App() {
               <ProtectedRoute>
                 <DashboardPage />
               </ProtectedRoute>
-
-              
             }
           />
 
           {/*
-          <Route
-            path="/forgot-password"
-            element={<ForgotPasswordPage />}
-          />
-
-          <Route
-            path="/verify-email"
-            element={<VerifyEmailPage />}
-          />
+          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
           */}
         </Routes>
       </main>
@@ -176,4 +186,5 @@ function App() {
     </AuthProvider>
   );
 }
+
 export default App;
